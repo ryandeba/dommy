@@ -55,7 +55,7 @@ new Vue({
     ],
     appStyle: "",
 
-    drawer: true
+    drawer: false
   },
   watch: {
     danceParty: function() {
