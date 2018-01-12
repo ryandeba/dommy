@@ -1,0 +1,42 @@
+[v-cloak] {
+  display: none;
+}
+
+.animated--repeat {
+  xanimation-iteration-count: infinite;
+}
+
+.dommy {
+  display: inline-block;
+  width: 200px;
+  height: 400px;
+  border: 30px solid #FFBC01;
+  border-radius: 999px;
+  position: relative;
+  xpointer-events: none;
+}
+
+.dommy__eye {
+  border: 26px solid #FFBC01;
+  border-radius: 999px;
+  width: 0;
+  height: 0;
+  position: absolute;
+  top: 65px;
+}
+  .dommy__eye--left {
+    left: 20px;
+  }
+  .dommy__eye--right {
+      left: 80px;
+  }
+  
+.dommy__mouth {
+  border: 20px solid #FFBC01;
+  border-radius: 999px;
+  width: 150px;
+  height: 0;
+  position: absolute;
+  top: 140px;
+  right: -30px
+}
