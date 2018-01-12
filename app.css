@@ -20,12 +20,12 @@
   }
 
   .dommy__eye {
-    border: 26px solid #FFBC01;
+    border: 23px solid #FFBC01;
     border-radius: 999px;
     width: 0;
     height: 0;
     position: absolute;
-    top: 65px;
+    top: 80px;
   }
     .dommy__eye--left {
       left: 20px;
@@ -35,11 +35,11 @@
     }
     
   .dommy__mouth {
-    border: 20px solid #FFBC01;
+    border: 16px solid #FFBC01;
     border-radius: 999px;
-    width: 150px;
+    width: 155px;
     height: 0;
     position: absolute;
-    top: 140px;
+    top: 160px;
     right: -30px
   }
