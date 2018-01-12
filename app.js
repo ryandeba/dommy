@@ -34,10 +34,10 @@ new Vue({
   data: {
     animation: "",
     animations: animations,
-    numberOfDommys: 5,
+    numberOfDommys: 1,
     dommys: [new Dommy()],
     repeatAnimation: false,
-    danceParty: true,
+    danceParty: false,
     dancePartyInterval: undefined,
     dancePartyColors: [
       "red",
@@ -102,6 +102,10 @@ new Vue({
       });
       this.appStyle = "transition: 2s all; background-color: " + getRandomArrayElement(this.dancePartyColors);
     }
+  },
+  mounted: function() {
+    this.numberOfDommys = 5;
+    this.danceParty = true;
   }
 });
 
