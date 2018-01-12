@@ -26,7 +26,22 @@ new Vue({
     ],
     repeatAnimation: false,
     danceParty: false,
-    dancePartyInterval: undefined
+    dancePartyInterval: undefined,
+    dancePartyColors: [
+      "red",
+      "khaki",
+      "magenta",
+      "darkviolet",
+      "slateblue",
+      "lime",
+      "teal",
+      "aqua",
+      "navy",
+      "chocolate",
+      "silver",
+      "beige"
+    ],
+    appStyle: ""
   },
   computed: {
     dommyClasses: function() {
@@ -46,12 +61,23 @@ new Vue({
         this.dancePartyInterval = setInterval(this.shuffle, 2000);
       } else {
         clearInterval(this.dancePartyInterval);
+        this.appStyle = "background-color: initial";
       };
     }
   },
   methods: {
     shuffle: function() {
-      this.animation = this.danceAnimations[Math.floor(Math.random() * this.danceAnimations.length)];
+      this.animation = getRandomArrayElement(this.danceAnimations);
+      this.appStyle = "transition: 2s all; background-color: " + getRandomArrayElement(this.dancePartyColors);
     }
   }
 });
+
+function getRandomArrayElement(array) {
+  return array[Math.floor(Math.random() * array.length)];
+};
+
+/*
+ideas
+- options for clothing/accessories (hats, food, etc)
+*/
