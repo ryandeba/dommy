@@ -50,7 +50,7 @@ new Vue({
     dommyClasses: function() {
       var classes = ["animated", this.animation];
       this.repeatAnimation && classes.push("animated--repeat");
-      return "animated animated--repeat " + this.animation;
+      return classes.join(" ");
     }
   }
 });

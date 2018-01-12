@@ -3,7 +3,7 @@
 }
 
 .animated--repeat {
-  xanimation-iteration-count: infinite;
+  animation-iteration-count: infinite;
 }
 
 .dommy {
@@ -13,7 +13,7 @@
   border: 30px solid #FFBC01;
   border-radius: 999px;
   position: relative;
-  xpointer-events: none;
+  pointer-events: none;
 }
 
 .dommy__eye {
