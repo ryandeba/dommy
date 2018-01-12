@@ -15,28 +15,31 @@
   position: relative;
   pointer-events: none;
 }
+  .dommy + .dommy {
+    margin-left: 80px;
+  }
 
-.dommy__eye {
-  border: 26px solid #FFBC01;
-  border-radius: 999px;
-  width: 0;
-  height: 0;
-  position: absolute;
-  top: 65px;
-}
-  .dommy__eye--left {
-    left: 20px;
+  .dommy__eye {
+    border: 26px solid #FFBC01;
+    border-radius: 999px;
+    width: 0;
+    height: 0;
+    position: absolute;
+    top: 65px;
   }
-  .dommy__eye--right {
-      left: 80px;
+    .dommy__eye--left {
+      left: 20px;
+    }
+    .dommy__eye--right {
+        left: 80px;
+    }
+    
+  .dommy__mouth {
+    border: 20px solid #FFBC01;
+    border-radius: 999px;
+    width: 150px;
+    height: 0;
+    position: absolute;
+    top: 140px;
+    right: -30px
   }
-  
-.dommy__mouth {
-  border: 20px solid #FFBC01;
-  border-radius: 999px;
-  width: 150px;
-  height: 0;
-  position: absolute;
-  top: 140px;
-  right: -30px
-}

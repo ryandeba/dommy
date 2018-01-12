@@ -15,22 +15,26 @@
   </head>
   <body>
 
+    <template type="text/template" id="template-dommy">
+      <div id="dommy" class="dommy" :class="dommyClasses">
+        <div class="dommy__face">
+          <div class="dommy__eye dommy__eye--left"></div>
+          <div class="dommy__eye dommy__eye--right"></div>
+          <div class="dommy__mouth"></div>
+        </div>
+      </div>
+    </template>
+
     <div id="app">
       <v-app :style="appStyle">
         <v-content>
           <v-container class="text-xs-center" fluid grid-list-xl>
 
-            <div id="dommy" class="dommy" :class="dommyClasses">
-              <div class="dommy__face">
-                <div class="dommy__eye dommy__eye--left"></div>
-                <div class="dommy__eye dommy__eye--right"></div>
-                <div class="dommy__mouth"></div>
-              </div>
-            </div>
+            <dommy v-for="(dommy, index) in dommys" :key="index" :data="dommy"></dommy>
 
             <v-layout row justify-space-between>
-              <v-flex xs2>
-              </v-flex>
+              <v-flex xs2></v-flex>
+
               <v-flex xs5>
                 <v-select
                   v-bind:items="animations"
@@ -39,6 +43,8 @@
                   single-line
                   bottom
                 ></v-select>
+
+                <v-slider v-model="numberOfDommys" :max="5" ticks></v-slider>
 
                 <v-checkbox
                   label="Repeat Animation"
@@ -51,8 +57,8 @@
                 ></v-checkbox>
 
               </v-flex>
-              <v-flex xs2>
-              </v-flex>
+
+              <v-flex xs2></v-flex>
             </v-layout>
 
           </v-container>
