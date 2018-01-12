@@ -110,11 +110,10 @@ function getRandomArrayElement(array) {
 };
 
 function Dommy(options) {
-  return {
-    animation: "",
-    repeatAnimation: false,
-    ...options
-  };
+  options = options || {};
+  options.animation = options.animation || "";
+  options.repeatAnimation = options.repeatAnimation || false;
+  return options;
 };
 
 /*
