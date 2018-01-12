@@ -34,10 +34,10 @@ new Vue({
   data: {
     animation: "",
     animations: animations,
-    numberOfDommys: 1,
+    numberOfDommys: 5,
     dommys: [new Dommy()],
     repeatAnimation: false,
-    danceParty: false,
+    danceParty: true,
     dancePartyInterval: undefined,
     dancePartyColors: [
       "red",
