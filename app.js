@@ -67,6 +67,9 @@ new Vue({
         this.repeatAnimation = false;
         clearInterval(this.dancePartyInterval);
         this.appStyle = "background-color: initial";
+        var animation = this.animation;
+        this.animation = "";
+        this.animation = animation;
       };
     },
     animation: function() {
