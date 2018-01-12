@@ -16,13 +16,15 @@
   <body>
 
     <template type="text/template" id="template-dommy">
-      <div id="dommy" class="dommy" :class="dommyClasses">
-        <div class="dommy__face">
-          <div class="dommy__eye dommy__eye--left"></div>
-          <div class="dommy__eye dommy__eye--right"></div>
-          <div class="dommy__mouth"></div>
-        </div>
-      </div>
+      <svg xmlns="http://www.w3.org/2000/svg" class="dommy" :class="dommyClasses" viewBox="0 0 200 450">
+        <g class="dommy__body">
+            <path d="M50,225 l140,0 M190,225 l0,-125 A1,1 0,0,0 10,100 M10,100 l0,250 A1,1 0,0,0 190,350 l0,-90" />
+        </g>
+        <g class="dommy__eyes">
+            <circle cx="70" cy="125" r="20"/>
+            <circle cx="140" cy="125" r="20"/>
+        </g>
+    </svg>
     </template>
 
     <div id="app">

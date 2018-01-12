@@ -7,41 +7,21 @@
 }
 
 .dommy {
-  display: inline-block;
   width: 10vw;
   height: 20vw;
-  border: 1.5vw solid #FFBC01;
-  border-radius: 50vw;
-  position: relative;
-  pointer-events: none;
+  
+  stroke: #FFBC01;
+  stroke-width: 20;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
-  .dommy + .dommy {
-    margin-left: 4vw;
-  }
 
-  .dommy__eye {
-    background-color: #FFBC01;
-    border: 1.15vw solid #FFBC01;
-    border-radius: 50vw;
-    width: 0;
-    height: 0;
-    position: absolute;
-    top: 4vw;
-  }
-    .dommy__eye--left {
-      left: 1vw;
-    }
-    .dommy__eye--right {
-        left: 4vw;
-    }
-    
-  .dommy__mouth {
-    background-color: #FFBC01;
-    border: 0.75vw solid #FFBC01;
-    border-radius: 50vw;
-    width: 7.7vw;
-    height: 0;
-    position: absolute;
-    top: 8vw;
-    right: -1.45vw;
-  }
+.dommy__eyes {
+  fill: #FFBC01;
+  stroke: none;
+}
+
+.dommy + .dommy {
+  margin-left: 4vw;
+}
