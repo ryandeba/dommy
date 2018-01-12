@@ -1,0 +1,186 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Dommy</title>
+
+    <script src="https://unpkg.com/vue"></script>
+    <script src="https://unpkg.com/vue-material@beta"></script>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic|Material+Icons">
+    <link rel="stylesheet" href="https://unpkg.com/vue-material@beta/dist/vue-material.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/vue-material@beta/dist/theme/default.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <style>
+      body {
+        padding: 50px;
+        font-family: sans-serif;
+      }
+
+      select {
+        margin-top: 50px;
+      }
+
+      .animated--repeat {
+        animation-iteration-count: infinite;
+      }
+
+      .dommy {
+        width: 200px;
+        height: 400px;
+        border: 30px solid #FFBC01;
+        border-radius: 999px;
+        position: relative;
+        pointer-events: none;
+      }
+
+      .dommy__eye {
+        border: 26px solid #FFBC01;
+        border-radius: 999px;
+        width: 0;
+        height: 0;
+        position: absolute;
+        top: 65px;
+      }
+        .dommy__eye--left {
+          left: 20px;
+        }
+        .dommy__eye--right {
+            left: 80px;
+        }
+        
+      .dommy__mouth {
+        border: 20px solid #FFBC01;
+        border-radius: 999px;
+        width: 150px;
+        height: 0;
+        position: absolute;
+        top: 140px;
+        right: -30px
+      }
+    </style>
+  </head>
+  <body>
+    <div id="dommy" class="dommy animated animated--repeat shake">
+      <div class="dommy__face">
+        <div class="dommy__eye dommy__eye--left"></div>
+        <div class="dommy__eye dommy__eye--right"></div>
+        <div class="dommy__mouth"></div>
+      </div>
+    </div>
+
+    <select id="select-animation">
+      <option>bounce</option>
+      <option>flash</option>
+      <option>pulse</option>
+      <option>rubberBand</option>
+      <option>shake</option>
+      <option>headShake</option>
+      <option>swing</option>
+      <option>tada</option>
+      <option>wobble</option>
+      <option>jello</option>
+      <option>bounceIn</option>
+      <option>bounceInDown</option>
+      <option>bounceInLeft</option>
+      <option>bounceInRight</option>
+      <option>bounceInUp</option>
+      <option>bounceOut</option>
+      <option>bounceOutDown</option>
+      <option>bounceOutLeft</option>
+      <option>bounceOutRight</option>
+      <option>bounceOutUp</option>
+      <option>fadeIn</option>
+      <option>fadeInDown</option>
+      <option>fadeInDownBig</option>
+      <option>fadeInLeft</option>
+      <option>fadeInLeftBig</option>
+      <option>fadeInRight</option>
+      <option>fadeInRightBig</option>
+      <option>fadeInUp</option>
+      <option>fadeInUpBig</option>
+      <option>fadeOut</option>
+      <option>fadeOutDown</option>
+      <option>fadeOutDownBig</option>
+      <option>fadeOutLeft</option>
+      <option>fadeOutLeftBig</option>
+      <option>fadeOutRight</option>
+      <option>fadeOutRightBig</option>
+      <option>fadeOutUp</option>
+      <option>fadeOutUpBig</option>
+      <option>flipInX</option>
+      <option>flipInY</option>
+      <option>flipOutX</option>
+      <option>flipOutY</option>
+      <option>lightSpeedIn</option>
+      <option>lightSpeedOut</option>
+      <option>rotateIn</option>
+      <option>rotateInDownLeft</option>
+      <option>rotateInDownRight</option>
+      <option>rotateInUpLeft</option>
+      <option>rotateInUpRight</option>
+      <option>rotateOut</option>
+      <option>rotateOutDownLeft</option>
+      <option>rotateOutDownRight</option>
+      <option>rotateOutUpLeft</option>
+      <option>rotateOutUpRight</option>
+      <option>hinge</option>
+      <option>jackInTheBox</option>
+      <option>rollIn</option>
+      <option>rollOut</option>
+      <option>zoomIn</option>
+      <option>zoomInDown</option>
+      <option>zoomInLeft</option>
+      <option>zoomInRight</option>
+      <option>zoomInUp</option>
+      <option>zoomOut</option>
+      <option>zoomOutDown</option>
+      <option>zoomOutLeft</option>
+      <option>zoomOutRight</option>
+      <option>zoomOutUp</option>
+      <option>slideInDown</option>
+      <option>slideInLeft</option>
+      <option>slideInRight</option>
+      <option>slideInUp</option>
+      <option>slideOutDown</option>
+      <option>slideOutLeft</option>
+      <option>slideOutRight</option>
+      <option>slideOutUp</option>
+    </select>
+
+    <div>
+      <button id="btn-play">Dancy Dommy Dance!</button>
+    </div>
+
+    <div>
+      <label for="dance-party">
+        <input id="dance-party" type="checkbox">
+        Dance Party
+      </label>
+    </div>
+  </body>
+
+  <script>
+    document.getElementById("select-animation").onchange = animateDommy;
+    document.getElementById("btn-play").onclick = animateDommy;
+
+    var dancePartyInterval;
+    document.getElementById("dance-party").onchange = function() {
+      if (this.checked) {
+        dancePartyInterval = setInterval(function() {
+          
+        }, 1000);
+      } else {
+        clearInterval(dancePartyInterval);
+      };
+    }
+
+    function animateDommy() {
+      var el = document.getElementById("dommy");
+      el.classList = "dommy";
+      setTimeout(function() {
+        el.classList = "dommy animated animated--repeat " + document.getElementById("select-animation").value;
+      }, 10);
+    };
+  </script>
+</html>
