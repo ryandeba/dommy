@@ -75,6 +75,10 @@
         <v-content>
           <v-container class="text-xs-center" fluid>
 
+            <div class="discoball" v-if="danceParty">
+              <img src="https://drive.google.com/uc?id=0B7QrEBMF4GTGQ3lfRzV0cU5rNHM" alt="">
+            </div>
+
             <v-layout flex wrap row justify-space-between>
               <v-flex xs12 class="mt-5">
                 <dommy v-for="(dommy, index) in dommys" :key="index" :data="dommy"></dommy>
