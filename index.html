@@ -26,29 +26,39 @@
     </template>
 
     <div id="app">
-      <v-app :style="appStyle">
+      <v-app :style="appStyle" style="">
         <v-content>
           <v-container class="text-xs-center" fluid grid-list-xl>
 
-            <dommy v-for="(dommy, index) in dommys" :key="index" :data="dommy"></dommy>
+            <v-layout row style="margin: 50px 0;">
+              <v-flex xs12>
+                <dommy v-for="(dommy, index) in dommys" :key="index" :data="dommy"></dommy>
+              </v-flex>
+            </v-layout>
 
             <v-layout row justify-space-between>
-              <v-flex xs2></v-flex>
+              <v-flex xs1></v-flex>
 
-              <v-flex xs5>
+              <v-flex xs6>
                 <v-select
                   v-bind:items="animations"
                   v-model="animation"
                   label="Select Animation"
                   single-line
                   bottom
+                  :disabled="danceParty"
                 ></v-select>
 
-                <v-slider v-model="numberOfDommys" :max="5" ticks></v-slider>
+                <v-slider
+                  v-model="numberOfDommys"
+                  :max="5"
+                  ticks
+                ></v-slider>
 
                 <v-checkbox
                   label="Repeat Animation"
                   v-model="repeatAnimation"
+                  :disabled="danceParty"
                 ></v-checkbox>
 
                 <v-checkbox
@@ -58,7 +68,7 @@
 
               </v-flex>
 
-              <v-flex xs2></v-flex>
+              <v-flex xs1></v-flex>
             </v-layout>
 
           </v-container>

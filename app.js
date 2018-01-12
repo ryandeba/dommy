@@ -62,6 +62,7 @@ new Vue({
         this.shuffle();
         this.dancePartyInterval = setInterval(this.shuffle, 2000);
       } else {
+        this.repeatAnimation = false;
         clearInterval(this.dancePartyInterval);
         this.appStyle = "background-color: initial";
       };
