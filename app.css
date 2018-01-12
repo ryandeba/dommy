@@ -8,38 +8,40 @@
 
 .dommy {
   display: inline-block;
-  width: 200px;
-  height: 400px;
-  border: 30px solid #FFBC01;
-  border-radius: 999px;
+  width: 10vw;
+  height: 20vw;
+  border: 1.5vw solid #FFBC01;
+  border-radius: 50vw;
   position: relative;
   pointer-events: none;
 }
   .dommy + .dommy {
-    margin-left: 80px;
+    margin-left: 4vw;
   }
 
   .dommy__eye {
-    border: 23px solid #FFBC01;
-    border-radius: 999px;
+    background-color: #FFBC01;
+    border: 1.15vw solid #FFBC01;
+    border-radius: 50vw;
     width: 0;
     height: 0;
     position: absolute;
-    top: 80px;
+    top: 4vw;
   }
     .dommy__eye--left {
-      left: 20px;
+      left: 1vw;
     }
     .dommy__eye--right {
-        left: 80px;
+        left: 4vw;
     }
     
   .dommy__mouth {
-    border: 16px solid #FFBC01;
-    border-radius: 999px;
-    width: 155px;
+    background-color: #FFBC01;
+    border: 0.75vw solid #FFBC01;
+    border-radius: 50vw;
+    width: 7.75vw;
     height: 0;
     position: absolute;
-    top: 160px;
-    right: -30px
+    top: 8vw;
+    right: -1.5vw;
   }
