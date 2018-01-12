@@ -26,16 +26,21 @@
     </template>
 
     <div id="app">
-      <v-app :style="appStyle" style="">
-        <v-content>
+      <v-app :style="appStyle">
+        <v-toolbar app>
+          <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
+          <v-toolbar-title>Dommy</v-toolbar-title>
+        </v-toolbar>
+
+        <v-navigation-drawer
+          fixed
+          temporary
+          v-model="drawer"
+          app
+        >
           <v-container class="text-xs-center" fluid>
-
             <v-layout flex wrap row justify-space-between>
-              <v-flex xs12 class="mt-5">
-                <dommy v-for="(dommy, index) in dommys" :key="index" :data="dommy"></dommy>
-              </v-flex>
-
-              <v-flex xs6 offset-xs3 class="mt-5">
+              <v-flex xs12>
                 <v-select
                   v-bind:items="animations"
                   v-model="animation"
@@ -61,7 +66,16 @@
                   label="Dance Party"
                   v-model="danceParty"
                 ></v-checkbox>
+              </v-flex>
+            </v-layout>
+        </v-navigation-drawer>
 
+        <v-content>
+          <v-container class="text-xs-center" fluid>
+
+            <v-layout flex wrap row justify-space-between>
+              <v-flex xs12 class="mt-5">
+                <dommy v-for="(dommy, index) in dommys" :key="index" :data="dommy"></dommy>
               </v-flex>
             </v-layout>
 

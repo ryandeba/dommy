@@ -53,7 +53,9 @@ new Vue({
       "silver",
       "beige"
     ],
-    appStyle: ""
+    appStyle: "",
+
+    drawer: false
   },
   watch: {
     danceParty: function() {
