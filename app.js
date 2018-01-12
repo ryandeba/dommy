@@ -1,27 +1,3 @@
-/*
-document.getElementById("select-animation").onchange = animateDommy;
-document.getElementById("btn-play").onclick = animateDommy;
-
-var dancePartyInterval;
-document.getElementById("dance-party").onchange = function() {
-  if (this.checked) {
-    dancePartyInterval = setInterval(function() {
-      
-    }, 1000);
-  } else {
-    clearInterval(dancePartyInterval);
-  };
-}
-*/
-
-function animateDommy() {
-  var el = document.getElementById("dommy");
-  el.classList = "dommy";
-  setTimeout(function() {
-    el.classList = "dommy animated animated--repeat " + document.getElementById("select-animation").value;
-  }, 10);
-};
-
 new Vue({
   el: "#app",
   data: {
@@ -38,19 +14,44 @@ new Vue({
       "flipOutX", "flipOutY", "lightSpeedIn", "lightSpeedOut", "rotateIn",
       "rotateInDownLeft", "rotateInDownRight", "rotateInUpLeft", "rotateInUpRight", "rotateOut",
       "rotateOutDownLeft", "rotateOutDownRight", "rotateOutUpLeft", "rotateOutUpRight", "hinge",
-      "jackInTheBox", "rollIn", "rollOut", "zoomIn", "zoomInDown",
+      "rollIn", "rollOut", "zoomIn", "zoomInDown",
       "zoomInLeft", "zoomInRight", "zoomInUp", "zoomOut", "zoomOutDown",
       "zoomOutLeft", "zoomOutRight", "zoomOutUp", "slideInDown", "slideInLeft",
       "slideInRight", "slideInUp", "slideOutDown", "slideOutLeft", "slideOutRight",
       "slideOutUp"
     ],
-    repeatAnimation: false
+    danceAnimations: [
+      "bounce", "pulse", "rubberBand", "shake",
+      "swing", "tada", "wobble", "jello", "lightSpeedIn"
+    ],
+    repeatAnimation: false,
+    danceParty: false,
+    dancePartyInterval: undefined
   },
   computed: {
     dommyClasses: function() {
       var classes = ["animated", this.animation];
-      this.repeatAnimation && classes.push("animated--repeat");
+      (this.repeatAnimation || this.danceParty) && classes.push("animated--repeat");
       return classes.join(" ");
+    },
+    availableDanceAnimations: function() {
+      var index = this.danceAnimations.indexOf(this.animation);
+      return index && this.danceAnimations.splice(index, 1) || this.danceAnimations;
+    }
+  },
+  watch: {
+    danceParty: function() {
+      if (this.danceParty) {
+        this.shuffle();
+        this.dancePartyInterval = setInterval(this.shuffle, 2000);
+      } else {
+        clearInterval(this.dancePartyInterval);
+      };
+    }
+  },
+  methods: {
+    shuffle: function() {
+      this.animation = this.danceAnimations[Math.floor(Math.random() * this.danceAnimations.length)];
     }
   }
 });
