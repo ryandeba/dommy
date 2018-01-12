@@ -28,18 +28,14 @@
     <div id="app">
       <v-app :style="appStyle" style="">
         <v-content>
-          <v-container class="text-xs-center" fluid grid-list-xl>
+          <v-container class="text-xs-center" fluid>
 
-            <v-layout row style="margin: 50px 0;">
-              <v-flex xs12>
+            <v-layout flex wrap row justify-space-between>
+              <v-flex xs12 class="mt-5">
                 <dommy v-for="(dommy, index) in dommys" :key="index" :data="dommy"></dommy>
               </v-flex>
-            </v-layout>
 
-            <v-layout row justify-space-between>
-              <v-flex xs1></v-flex>
-
-              <v-flex xs6>
+              <v-flex xs6 offset-xs3 class="mt-5">
                 <v-select
                   v-bind:items="animations"
                   v-model="animation"
@@ -67,8 +63,6 @@
                 ></v-checkbox>
 
               </v-flex>
-
-              <v-flex xs1></v-flex>
             </v-layout>
 
           </v-container>
