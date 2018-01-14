@@ -73,10 +73,16 @@
 
           <v-container class="text-xs-center" fluid v-if="customize">
             <v-layout flex wrap row justify-space-between>
-              <v-flex xs12 style="margin-top: 80px;">
+              <v-flex xs1></v-flex>
+
+              <v-flex xs4 style="padding: 6vw;" class="mt-5" elevation-6>
                 <dommy :data="customDommy"></dommy>
               </v-flex>
 
+              <v-flex xs1></v-flex>
+
+            </v-layout>
+            <v-layout flex wrap row justify-space-between>
               <v-flex xs1></v-flex>
 
               <v-flex xs4 class="mt-5">
