@@ -20,7 +20,6 @@ const animations = [
 const hats = [
   {text: "None", value: ""},
   {text: "Cowboy hat", value: "cowboy"},
-  {text: "Fedora", value: "fedora"},
   {text: "Safety helmet", value: "safety-helmet"},
   {text: "Santa hat", value: "santa"},
   {text: "Top hat", value: "top-hat"},

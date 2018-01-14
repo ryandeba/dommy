@@ -33,25 +33,21 @@
 }
   .dommy__hat--cowboy {
     left: -1vw;
-    background-image: url("https://cdn.pixabay.com/photo/2012/04/10/22/47/cowboy-hat-26739_960_720.png");
+    background-image: url("assets/cowboy-hat.png");
   }
   .dommy__hat--santa {
     left: -4vw;
     width: 13vw;
-    background-image: url("https://cdn.pixabay.com/photo/2012/04/28/18/17/santas-hat-43847_960_720.png");
-  }
-  .dommy__hat--fedora {
-    left: -1vw;
-    background-image: url("http://maxpixel.freegreatpicture.com/static/photo/1x/Red-Man-Male-Hat-Fashion-308779.png");
+    background-image: url("assets/santa-hat.png");
   }
   .dommy__hat--safety-helmet {
     top: -5vw;
-    background-image: url("http://maxpixel.freegreatpicture.com/static/photo/1x/Safety-Helmet-Safety-Helmet-Work-Protection-158268.png");
+    background-image: url("assets/safety-helmet.png");
   }
   .dommy__hat--top-hat {
     top: -5vw;
     left: -2vw;
-    background-image: url("https://cdn.pixabay.com/photo/2013/07/12/19/29/top-hat-154869_960_720.png");
+    background-image: url("assets/top-hat.png");
   }
 
 .dommy__food {
@@ -64,13 +60,13 @@
   background-size: 100%;
 }
   .dommy__food--pizza {
-    background-image: url("https://cdn.pixabay.com/photo/2012/04/01/16/51/pizza-23477_960_720.png");
+    background-image: url("assets/pizza.png");
   }
   .dommy__food--taco {
-    background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Taco_detailed_icon.png/304px-Taco_detailed_icon.png");
+    background-image: url("assets/taco.png");
   }
   .dommy__food--burger {
-    background-image: url("http://maxpixel.freegreatpicture.com/static/photo/1x/Sandwich-Meal-Lunch-Hamburger-Cheeseburger-Food-31775.png");
+    background-image: url("assets/burger.png");
   }
 
 
