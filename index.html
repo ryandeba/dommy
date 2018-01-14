@@ -9,6 +9,7 @@
 
     <script src="https://unpkg.com/vue/dist/vue.js"></script>
     <script src="https://unpkg.com/vuetify/dist/vuetify.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-color/2.4.3/vue-color.min.js"></script>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <link rel="stylesheet" href="app.css">
@@ -20,10 +21,10 @@
         <div :class="'dommy__hat dommy__hat--' + data.hat"></div>
         <div :class="'dommy__food dommy__food--' + data.food"></div>
         <svg xmlns="http://www.w3.org/2000/svg" class="dommy" :class="dommyClasses" viewBox="0 0 200 450">
-          <g class="dommy__body">
+          <g class="dommy__body" :stroke="data.color">
             <path d="M50,225 l140,0 M190,225 l0,-125 A1,1 0,0,0 10,100 M10,100 l0,250 A1,1 0,0,0 190,350 l0,-90" />
           </g>
-          <g class="dommy__eyes">
+          <g class="dommy__eyes" :fill="data.color">
             <circle cx="70" cy="125" r="20"/>
             <circle cx="140" cy="125" r="20"/>
           </g>
@@ -33,9 +34,9 @@
 
     <div id="app">
       <v-app :style="appStyle">
-        <v-toolbar app>
+        <v-toolbar app class="orange lighten-1">
           <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
-          <v-toolbar-title>Dommy</v-toolbar-title>
+          <v-toolbar-title>Dommy Central</v-toolbar-title>
         </v-toolbar>
 
         <v-navigation-drawer
@@ -97,6 +98,8 @@
                   v-model="customDommy.food"
                   label="Select Food"
                 ></v-select>
+
+                <color-picker :value="customDommy.color" @input="updateCustomDommyColor"></color-picker>
               </v-flex>
 
               <v-flex xs1></v-flex>

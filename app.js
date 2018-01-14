@@ -32,6 +32,29 @@ const foods = [
   {text: "Taco", value: "taco"},
 ];
 
+var colorConfig = {
+  hex: '#194d33',
+  hsl: {
+    h: 150,
+    s: 0.5,
+    l: 0.2,
+    a: 1
+  },
+  hsv: {
+    h: 150,
+    s: 0.66,
+    v: 0.30,
+    a: 1
+  },
+  rgba: {
+    r: 25,
+    g: 77,
+    b: 51,
+    a: 1
+  },
+  a: 1
+};
+
 Vue.component("dommy", {
   template: "#template-dommy",
   props: ["data"],
@@ -46,6 +69,9 @@ Vue.component("dommy", {
 
 new Vue({
   el: "#app",
+  components: {
+    'color-picker': VueColor.Slider
+  },
   data: {
     animation: "",
     animations: animations,
@@ -72,6 +98,7 @@ new Vue({
     appStyle: "",
     hats: hats,
     foods: foods,
+    colorConfig: colorConfig,
 
     drawer: false
   },
@@ -127,6 +154,9 @@ new Vue({
         dommy.animation = getRandomArrayElement(animations);
       });
       this.appStyle = "transition: 2s all; background-color: " + getRandomArrayElement(this.dancePartyColors);
+    },
+    updateCustomDommyColor: function(colorConfig) {
+      this.customDommy.color = colorConfig.hex;
     }
   },
   mounted: function() {
@@ -145,6 +175,7 @@ function Dommy(options) {
   options.repeatAnimation = options.repeatAnimation || false;
   options.hat = options.hat || "";
   options.food = options.food || "";
+  options.color = options.color || "#FFBC01";
   return options;
 };
 

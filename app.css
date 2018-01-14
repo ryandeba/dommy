@@ -15,7 +15,6 @@
 }
 
 .dommy__body {
-  stroke: #FFBC01;
   stroke-width: 20;
   fill: none;
   stroke-linecap: round;
@@ -71,7 +70,6 @@
 
 
 .dommy__eyes {
-  fill: #FFBC01;
   stroke: none;
 }
 
