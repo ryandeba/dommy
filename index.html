@@ -16,15 +16,19 @@
   <body>
 
     <template type="text/template" id="template-dommy">
-      <svg xmlns="http://www.w3.org/2000/svg" class="dommy" :class="dommyClasses" viewBox="0 0 200 450">
-        <g class="dommy__body">
+      <span class="dommy">
+        <div :class="'dommy__hat dommy__hat--' + data.hat"></div>
+        <div :class="'dommy__food dommy__food--' + data.food"></div>
+        <svg xmlns="http://www.w3.org/2000/svg" class="dommy" :class="dommyClasses" viewBox="0 0 200 450">
+          <g class="dommy__body">
             <path d="M50,225 l140,0 M190,225 l0,-125 A1,1 0,0,0 10,100 M10,100 l0,250 A1,1 0,0,0 190,350 l0,-90" />
-        </g>
-        <g class="dommy__eyes">
+          </g>
+          <g class="dommy__eyes">
             <circle cx="70" cy="125" r="20"/>
             <circle cx="140" cy="125" r="20"/>
-        </g>
-    </svg>
+          </g>
+        </svg>
+      </span>
     </template>
 
     <div id="app">
@@ -40,42 +44,23 @@
           v-model="drawer"
           app
         >
-          <v-container class="text-xs-center" fluid>
-            <v-layout flex wrap row justify-space-between>
-              <v-flex xs12>
-                <v-select
-                  v-bind:items="animations"
-                  v-model="animation"
-                  label="Select Animation"
-                  single-line
-                  bottom
-                  :disabled="danceParty"
-                ></v-select>
-
-                <v-slider
-                  v-model="numberOfDommys"
-                  :max="5"
-                  ticks
-                ></v-slider>
-
-                <v-checkbox
-                  label="Repeat Animation"
-                  v-model="repeatAnimation"
-                  :disabled="danceParty"
-                ></v-checkbox>
-
-                <v-checkbox
-                  label="Dance Party"
-                  v-model="danceParty"
-                ></v-checkbox>
-              </v-flex>
-            </v-layout>
+          <v-list>
+            <v-list-tile @click="mode = 'customize'" v-model="customize">
+              <v-list-tile-content>
+                Customize Dommy
+              </v-list-tile-content>
+            </v-list-tile>
+            <v-list-tile @click="mode = 'danceParty'" v-model="danceParty">
+              <v-list-tile-content>
+                Dommy Dance Party
+              </v-list-tile-content>
+            </v-list-tile>
+          </v-list>
         </v-navigation-drawer>
 
         <v-content>
-          <v-container class="text-xs-center" fluid>
-
-            <div class="discoball" v-if="danceParty">
+          <v-container class="text-xs-center" fluid v-if="danceParty">
+            <div class="discoball">
               <img src="https://drive.google.com/uc?id=0B7QrEBMF4GTGQ3lfRzV0cU5rNHM" alt="">
             </div>
 
@@ -84,7 +69,32 @@
                 <dommy v-for="(dommy, index) in dommys" :key="index" :data="dommy"></dommy>
               </v-flex>
             </v-layout>
+          </v-container>
 
+          <v-container class="text-xs-center" fluid v-if="customize">
+            <v-layout flex wrap row justify-space-between>
+              <v-flex xs12 style="margin-top: 80px;">
+                <dommy :data="customDommy"></dommy>
+              </v-flex>
+
+              <v-flex xs1></v-flex>
+
+              <v-flex xs4 class="mt-5">
+                <v-select
+                  v-bind:items="hats"
+                  v-model="customDommy.hat"
+                  label="Select Hat"
+                ></v-select>
+
+                <v-select
+                  v-bind:items="foods"
+                  v-model="customDommy.food"
+                  label="Select Food"
+                ></v-select>
+              </v-flex>
+
+              <v-flex xs1></v-flex>
+            </v-layout>
           </v-container>
         </v-content>
       </v-app>

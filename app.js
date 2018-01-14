@@ -17,6 +17,22 @@ const animations = [
   "slideOutUp"
 ];
 
+const hats = [
+  {text: "None", value: ""},
+  {text: "Cowboy hat", value: "cowboy"},
+  {text: "Fedora", value: "fedora"},
+  {text: "Safety helmet", value: "safety-helmet"},
+  {text: "Santa hat", value: "santa"},
+  {text: "Top hat", value: "top-hat"},
+];
+
+const foods = [
+  {text: "None", value: ""},
+  {text: "Burger", value: "burger"},
+  {text: "Pizza", value: "pizza"},
+  {text: "Taco", value: "taco"},
+];
+
 Vue.component("dommy", {
   template: "#template-dommy",
   props: ["data"],
@@ -36,8 +52,9 @@ new Vue({
     animations: animations,
     numberOfDommys: 1,
     dommys: [new Dommy()],
+    customDommy: new Dommy(),
     repeatAnimation: false,
-    danceParty: false,
+    mode: "",
     dancePartyInterval: undefined,
     dancePartyColors: [
       "red",
@@ -54,8 +71,18 @@ new Vue({
       "beige"
     ],
     appStyle: "",
+    hats: hats,
+    foods: foods,
 
     drawer: false
+  },
+  computed: {
+    danceParty: function() {
+      return this.mode == "danceParty";
+    },
+    customize: function() {
+      return this.mode == "customize";
+    }
   },
   watch: {
     danceParty: function() {
@@ -105,7 +132,7 @@ new Vue({
   },
   mounted: function() {
     this.numberOfDommys = 5;
-    this.danceParty = true;
+    this.mode = "customize"
   }
 });
 
@@ -117,11 +144,12 @@ function Dommy(options) {
   options = options || {};
   options.animation = options.animation || "";
   options.repeatAnimation = options.repeatAnimation || false;
+  options.hat = options.hat || "";
+  options.food = options.food || "";
   return options;
 };
 
 /*
 ideas
-- options for clothing/accessories (hats, food, etc)
 - sad-faced disabled dommy when there are no dommys
 */
