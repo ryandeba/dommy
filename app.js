@@ -20,9 +20,11 @@
 
   const hats = [
     {text: "None", value: ""},
+    {text: "Beret", value: "beret"},
     {text: "Cowboy hat", value: "cowboy"},
     {text: "Safety helmet", value: "safety-helmet"},
     {text: "Santa hat", value: "santa"},
+    {text: "Sombrero", value: "sombrero"},
     {text: "Top hat", value: "top-hat"},
   ];
 

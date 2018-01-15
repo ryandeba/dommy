@@ -48,6 +48,16 @@
     left: -2vw;
     background-image: url("assets/top-hat.png");
   }
+  .dommy__hat--beret {
+    top: -5vw;
+    left: -2vw;
+    background-image: url("assets/beret.png");
+  }
+  .dommy__hat--sombrero {
+    top: -5vw;
+    left: -2vw;
+    background-image: url("assets/sombrero.png");
+  }
 
 .dommy__food {
   position: absolute;
