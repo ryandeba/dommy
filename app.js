@@ -71,6 +71,7 @@
   });
 
   new Vue({
+    vuetify: new Vuetify(),
     el: "#app",
     components: {
       'color-picker': VueColor.Slider
